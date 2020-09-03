@@ -9,4 +9,5 @@ An arduino project which lights a lamp when a face is detected in the camera.
 ## Setup
 Connect your relay controller to the 8th port of your Arduino (Also set 220V connections on your relay). Then, you are all set! Rest is handled by the computer/code!
 
-![An example](https://im5.ezgif.com/tmp/ezgif-5-4e7c64108007.gif)
+## How it works
+![An example](https://im5.ezgif.com/tmp/ezgif-5-812d5e52c5ce.gif)
