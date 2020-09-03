@@ -1,17 +1,17 @@
 import cv2
 import sys
-import logging as log
 import datetime as dt
 from time import sleep
 import time
 import pyfirmata
 
-
+# PORT HERE SHOULD BE CHANGED TO THE PORT YOU HAVE ARDUINO CONNECTED TO
 board = pyfirmata.Arduino('COM4')
+
+# This automaticly closes the lamp in the start
 board.digital[8].write(1)
 
 faceCascade = cv2.CascadeClassifier("cascades/haarcascade_frontalface_alt2.xml")
-log.basicConfig(filename='webcam.log',level=log.INFO)
 
 video_capture = cv2.VideoCapture(1)
 anterior = 0
@@ -39,10 +39,12 @@ while True:
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
+    #if any faces are found, send signal to the relay.
     if len(faces) != 0:
         lastSuccess = time.time()
         board.digital[8].write(0)
-
+    
+    # The code for the lamp to close after 5 seconds of no face detection
     try:
         if time.time() - lastSuccess > 5:
             board.digital[8].write(1)
