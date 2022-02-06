@@ -2,7 +2,7 @@
 An arduino project which lights a lamp when a face is detected in the camera.
 
 ## Requirements
-- Arduino Uno (or any sword of Arduino board which can be used with pyFirmata)
+- Arduino Uno (or any sort of Arduino board which can be used with pyFirmata)
 - 5V relay module
 - A lamp (or any electronical device you want to power)
 
